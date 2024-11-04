@@ -25,3 +25,22 @@ dispose(): <br>
 dispose() adalah metode yang dipanggil saat state widget dihapus secara permanen dari widget tree. Fungsi ini digunakan untuk membersihkan atau membuang sumber daya yang dipakai oleh widget agar tidak terjadi memory leak. Pada kode ini, scrollController.dispose() dipanggil untuk menghapus scrollController dan membebaskan sumber daya yang digunakannya. Ini penting karena ScrollController mengelola elemen-elemen yang bisa menghabiskan memori jika tidak di-dispose dengan benar.
 
 6. Kumpulkan laporan praktikum Anda berupa link commit atau repository GitHub ke spreadsheet yang telah disediakan!<br>
+
+##  Tugas Praktikum 2: InheritedWidget
+1. Selesaikan langkah-langkah praktikum tersebut, lalu dokumentasikan berupa GIF hasil akhir praktikum beserta penjelasannya di file README.md! Jika Anda menemukan ada yang error atau tidak berjalan dengan baik, silakan diperbaiki sesuai dengan tujuan aplikasi tersebut dibuat. <br>
+2. Jelaskan mana yang dimaksud InheritedWidget pada langkah 1 tersebut! Mengapa yang digunakan InheritedNotifier? <br>
+- return context.
+    dependOnInheritedWidgetOfExactType<PlanProvider>()!.notifier!; <br>
+- Penggunaan InheritedNotifier memiliki beberapa keuntungan salah satunya adalah Efisiensi Notifikasi Perubahan. InheritedNotifier menggunakan ValueNotifier sebagai notifier untuk memonitor perubahan dalam objek Plan. Ketika nilai dalam ValueNotifier berubah, InheritedNotifier akan secara otomatis memberi tahu widget di bawahnya yang menggunakan PlanProvider.of(context).
+
+3. Jelaskan maksud dari method di langkah 3 pada praktikum tersebut! Mengapa dilakukan demikian? <br>
+- get completedCount :  <br>
+ Getter completedCount berfungsi untuk menghitung dan mengembalikan jumlah tugas yang telah selesai dari daftar tasks. Dengan membuat getter ini, kita bisa menghitung jumlah tugas selesai kapan pun dibutuhkan tanpa perlu melakukan perulangan manual atau menulis logika ini berulang kali. Setiap kali completedCount dipanggil, nilai terbaru dari tugas yang selesai akan diambil dari daftar tasks secara otomatis. <br>
+
+- Getter completenessMessage :
+Getter completenessMessage berfungsi untuk mengembalikan string yang memberikan informasi mengenai jumlah tugas yang selesai dari total jumlah tugas. Getter ini membantu menghasilkan pesan kemajuan yang dinamis. Setiap kali daftar tasks diperbarui, nilai completenessMessage juga otomatis diperbarui, memberi informasi terkini tanpa perlu menghitung ulang atau membuat pesan ini di banyak tempat dalam kode. <br>
+
+
+4. Lakukan capture hasil dari Langkah 9 berupa GIF, kemudian jelaskan apa yang telah Anda buat! <br>
+![alt text](assets/prak2.gif)
+5. Kumpulkan laporan praktikum Anda berupa link commit atau repository GitHub ke spreadsheet yang telah disediakan! <br>
