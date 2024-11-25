@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import './views/plan_screen.dart';
 import './views/plan_creator_screen.dart';
 import './provider/plan_provider.dart';
 import './models/data_layer.dart';
